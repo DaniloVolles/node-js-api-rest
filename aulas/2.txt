@@ -1,0 +1,10 @@
+- Iniciar a criação do projeto node.js criando o package.json
+    - Instalar o node e a npm
+
+    npm init -y
+
+- Instalar o express para adicionar a pasta de módulos
+    - Ele permite subir um servidor web para testar requisições http
+    - https://expressjs.com/en/starter/hello-world.html
+
+    npm install express --save 
