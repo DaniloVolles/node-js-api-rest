@@ -8,3 +8,9 @@
     - https://expressjs.com/en/starter/hello-world.html
 
     npm install express --save 
+
+- Instalar o nodemon, para fazer uma escuta ativa do desenvolvimento da aplicação
+    - com ele, eu não preciso reiniciar o servidor para ver toda e qualquer alteração que eu fizer no projeto
+    - o -D explicita que essa instalação apenas vai acontecer para o ambiente de desenvolvimento, não vai afetar o ambiente real.
+
+    npm install nodemon -D

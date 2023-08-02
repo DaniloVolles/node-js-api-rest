@@ -1,0 +1,5 @@
+- Arquivo server.js -> É um arquvo na raíz que sobe o servidor.
+
+- Mock
+    - Mockar dados é fazer uma estrutura básica de dados para testarmos nossa api
+

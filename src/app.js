@@ -1,13 +1,23 @@
-const express = require('express')
+import express from 'express'
+
 const app = express()
-const port = 3000
+
+// Mock
+const CARROS = [
+    {id: 1, carro: 'Corolla', marca: 'Toyota'},
+    {id: 2, carro: 'Civic', marca: 'Honda'},
+    {id: 3, carro: 'HB20', marca: 'Hyundai'},
+    {id: 4, carro: 'Argo', marca: 'Fiat'}
+]
 
 // Criar rota padrão ou raiz
 app.get('/', (req, res) => {
     res.send('Hello, World!')
 })
 
-// Escutar a porta 
-app.listen(port, () => {
-    console.log(`Server: http://localhost:${port}`)
+app.get('/carros', (req,res) => {
+    res.status(200).send(CARROS)
 })
+
+export default app
+
