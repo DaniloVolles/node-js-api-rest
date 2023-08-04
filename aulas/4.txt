@@ -1,0 +1,4 @@
+CREATE SCHEMA `bd_carros` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+
+só posso subir uma conexão com um servidor se eu tiver uma base de dados conectada
+
