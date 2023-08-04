@@ -2,3 +2,8 @@ CREATE SCHEMA `bd_carros` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 
 só posso subir uma conexão com um servidor se eu tiver uma base de dados conectada
 
+CREATE TABLE `bd_carros`.`carros` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `modelo` VARCHAR(25) NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
