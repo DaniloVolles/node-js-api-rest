@@ -1,65 +1,35 @@
-import conexao from "../database/conexao.js"
+import CarroRepository from "../repositories/CarroRepository.js"
 
 class CarroController {
 
-    index(req,res) {
-        const sql = 'SELECT * FROM carros;'
-        conexao.query(sql, (erro, resultado) => {
-            if (erro) {
-                res.status(404).json({ 'erro': erro })
-            } else {
-                res.status(200).json(resultado)
-            }
-        })
+    async index(req,res) {
+        const row = await CarroRepository.findAll()
+        res.json(row)
     }
 
-    show(req, res) {
+    async show(req, res) {
         const id = req.params.id
-        const sql = 'SELECT * FROM carros WHERE id=?;'
-        conexao.query(sql, id, (erro, resultado) => {
-            const linha = resultado[0]
-            if (erro) {
-                res.status(404).json({ 'erro': erro })
-            } else {
-                res.status(200).json(linha)
-            }
-        })
+        const row = await CarroRepository.findById(id)
+        res.json(row)
     }
 
-    store(req, res) {
-    const carro = req.body
-    const sql = 'INSERT INTO carros SET ?;'
-    conexao.query(sql, carro, (erro, resultado) => {
-        if (erro) {
-            res.status(404).json({ 'erro': erro })
-        } else {
-            res.status(201).json(resultado)
-        }
-    })
-}
-    update(req, res) {
+    async store(req, res) {
+        const carro = req.body
+        const row = await CarroRepository.create(carro)
+        res.json(row)
+    }
+
+    async update(req, res) {
         const id = req.params.id
         const carro = req.body
-        const sql = 'UPDATE carros SET ? WHERE id=?;'
-        conexao.query(sql, [carro, id], (erro, resultado) => {
-            if (erro) {
-                res.status(404).json({ 'erro': erro })
-            } else {
-                res.status(200).json(resultado)
-            }
-        })
+        const row = await CarroRepository.update(carro, id)
+        res.json(row)
     }
-
-    delete(req, res) {
+    
+    async delete(req, res) {
         const id = req.params.id
-        const sql = 'DELETE FROM carros WHERE id=?;'
-        conexao.query(sql, id, (erro, resultado) => {
-            if (erro) {
-                res.status(404).json({ 'erro': erro })
-            } else {
-                res.status(200).json(resultado)
-            }
-        })
+        const row = await CarroRepository.delete(id)
+        res.json(row)
     }
 
 }
