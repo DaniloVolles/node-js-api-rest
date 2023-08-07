@@ -1,19 +1,12 @@
 import express from 'express'
-import CarroController from './app/controllers/CarroController.js'
+import routes from './routes.js'
 
 const app = express()
 
+// usar o routes
+app.use(routes)
+
 // Indica para o express ler body com o json   
 app.use(express.json())
-
-// ROTAS
-app.get('/carros', CarroController.index)
-app.get('/carros/:id', CarroController.show)
-
-app.post('/carros', CarroController.store)
-
-app.put('/carros/:id', CarroController.update)
-
-app.delete('/carros/:id', CarroController.delete)
 
 export default app
